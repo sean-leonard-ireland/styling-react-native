@@ -8,19 +8,23 @@ import { ConcertListItem } from "./ConcertListItem";
 export const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <ScrollView>
-        <SectionList
-          sections={defaultState}
-          renderItem={({ item }) => (
-            <ConcertListItem item={item} navigation={navigation} />
-          )}
-          renderSectionHeader={({ section }) => (
-            <Text style={styles.sectionHeader}>{section.title}</Text>
-          )}
-        />
-      </ScrollView>
+      <View style={styles.homeBody}>
+        <ScrollView>
+          <SectionList
+            sections={defaultState}
+            renderItem={({ item }) => (
+              <ConcertListItem item={item} navigation={navigation} />
+            )}
+            renderSectionHeader={({ section }) => (
+              <Text style={styles.sectionHeader}>{section.title}</Text>
+            )}
+          />
+        </ScrollView>
+      </View>
 
-      <Text>(C)2020 Globoticket</Text>
+      <View style={styles.homeFooter}>
+        <Text>(C)2020 Globoticket</Text>
+      </View>
     </View>
   );
 };
@@ -28,7 +32,8 @@ export const HomeScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "white",
-    height: 470,
+    //height: 470, replace with
+    flex: 1,
   },
   sectionHeader: {
     paddingTop: 2,
@@ -39,4 +44,6 @@ const styles = StyleSheet.create({
     borderBottomColor: "steelblue",
     borderBottomWidth: StyleSheet.hairlineWidth,
   },
+  homeBody: { flex: 15 },
+  homeFooter: { flex: 1 },
 });

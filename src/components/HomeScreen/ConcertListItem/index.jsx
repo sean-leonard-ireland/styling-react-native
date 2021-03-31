@@ -5,29 +5,34 @@ import { Text, View, StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   item: {
     //padding: 10,
-    height: 44,
+    //height: 44,  replace with flex
     borderBottomColor: "lightbluesteel",
     borderBottomWidth: StyleSheet.hairlineWidth,
+    flex: 1,
+    flexDirection: "row",
   },
 
   tab: {
-    width: 68,
+    //width: 68, replace with flex
     backgroundColor: "black",
     padding: 12,
-    position: "absolute",
-    left: 0,
+    //position: "absolute",
+    //left: 0,
+    flex: 1,
   },
 
   tabCenter: {
-    width: 272,
+    //width: 272, , replace with flex
     padding: 12,
-    position: "absolute",
-    right: 0,
+    //position: "absolute",
+    //right: 0,
+    flex: 5,
   },
 
   tabText: {
     color: "white",
-    fontSize: 14,
+    //fontSize: 14,
+    fontSize: "2vh",
     whiteSpace: "nowrap",
   },
 });
