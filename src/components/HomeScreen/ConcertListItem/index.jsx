@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
     //position: "absolute",
     //right: 0,
     flex: 5,
+    justifyContent: "center",
   },
 
   tabText: {
