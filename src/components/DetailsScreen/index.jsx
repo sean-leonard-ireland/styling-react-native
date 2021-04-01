@@ -3,8 +3,11 @@ import { Text, Image, Button, ScrollView, StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   image: {
-    height: 200,
-    width: 280,
+    //height: 200,
+    //width: 280,
+    height: "35vh",
+    display: "flex",
+    alignItems: "stretch",
   },
 
   container: {
@@ -21,7 +24,11 @@ export const DetailsScreen = ({ route }) => {
   return (
     <ScrollView style={styles.container}>
       <Text>
-        <Image style={styles.image} source={require("./../../img/img-3.jpg")} />
+        <Image
+          resizeMode="contain"
+          style={styles.image}
+          source={require("./../../img/img-3.jpg")}
+        />
 
         <h1>{name}</h1>
         <h2>
