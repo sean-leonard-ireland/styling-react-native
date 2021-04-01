@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
   item: {
     //padding: 10,
     //height: 44,  replace with flex
-    borderBottomColor: "lightbluesteel",
+    borderBottomColor: "white",
     borderBottomWidth: StyleSheet.hairlineWidth,
     flex: 1,
     flexDirection: "row",
@@ -15,10 +15,12 @@ const styles = StyleSheet.create({
   tab: {
     //width: 68, replace with flex
     backgroundColor: "black",
-    padding: 12,
+    //padding: 12,
     //position: "absolute",
     //left: 0,
-    flex: 1,
+    flex: 2,
+    justifyContent: "center",
+    alignItems: "center",
   },
 
   tabCenter: {
