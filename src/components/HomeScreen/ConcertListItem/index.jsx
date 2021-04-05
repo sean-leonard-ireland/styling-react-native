@@ -31,6 +31,9 @@ const styles = StyleSheet.create({
     flex: 5,
     justifyContent: "center",
   },
+  tabCenterText: {
+    fontSize: "2vh",
+  },
 
   tabText: {
     color: "white",
@@ -56,7 +59,7 @@ export const ConcertListItem = ({ navigation, item }) => {
         </View>
 
         <View style={styles.tabCenter}>
-          <Text>{item.name}</Text>
+          <Text style={styles.tabCenterText}>{item.name}</Text>
         </View>
       </View>
     </TouchableHighlight>

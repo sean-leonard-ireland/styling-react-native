@@ -36,6 +36,13 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     justifyContent: "space-evenly",
   },
+  pText: {
+    fontSize: "2vh",
+  },
+  buttonText: {
+    fontSize: "3vh",
+    fontWeight: "bold",
+  },
 });
 
 export const DetailsScreen = ({ route }) => {
@@ -70,7 +77,7 @@ export const DetailsScreen = ({ route }) => {
         <Image resizeMode="contain" style={styles.imageThumb} source={img2} />
         <Image resizeMode="contain" style={styles.imageThumb} source={img3} />
       </View>
-      <Text>
+      <Text style={styles.pText}>
         <h1>{name}</h1>
         <h2>
           {date.toLocaleDateString("en-us", {
@@ -89,7 +96,11 @@ export const DetailsScreen = ({ route }) => {
         </p>
       </Text>
 
-      <Button title="Purchase Tickets" onPress={() => {}}></Button>
+      <Button
+        style={styles.buttonText}
+        title="Purchase Tickets"
+        onPress={() => {}}
+      ></Button>
     </ScrollView>
   );
 };

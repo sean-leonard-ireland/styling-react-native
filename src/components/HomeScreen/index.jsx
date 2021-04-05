@@ -23,7 +23,7 @@ export const HomeScreen = ({ navigation }) => {
       </View>
 
       <View style={styles.homeFooter}>
-        <Text>(C)2020 Globoticket</Text>
+        <Text style={styles.homeFooterText}>(C)2020 Globoticket</Text>
       </View>
     </View>
   );
@@ -43,7 +43,21 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(247, 247, 247)",
     borderBottomColor: "steelblue",
     borderBottomWidth: StyleSheet.hairlineWidth,
+    fontSize: "2.5vh",
   },
   homeBody: { flex: 15 },
-  homeFooter: { flex: 1 },
+  homeFooter: {
+    flex: 1,
+    borderTopColor: "grey",
+    borderTopWidth: StyleSheet.hairlineWidth,
+    backgroundColor: "steelblue",
+    alignSelf: "stretch",
+    justifyContent: "flex-end",
+  },
+  homeFooterText: {
+    fontSize: "2vh",
+    textAlign: "center",
+    color: "white",
+    marginBottom: "0.5vh",
+  },
 });
