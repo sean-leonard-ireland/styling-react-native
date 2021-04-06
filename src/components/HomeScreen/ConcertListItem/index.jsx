@@ -1,67 +1,66 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import { TouchableHighlight } from "react-native-gesture-handler";
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, Animated } from "react-native";
 
 const styles = StyleSheet.create({
   item: {
-    //padding: 10,
-    //height: 44,  replace with flex
-    borderBottomColor: "white",
+    borderBottomColor: "lightsteelblue",
     borderBottomWidth: StyleSheet.hairlineWidth,
     flex: 1,
     flexDirection: "row",
   },
 
   tab: {
-    //width: 68, replace with flex
-    backgroundColor: "black",
-    //padding: 12,
-    //position: "absolute",
-    //left: 0,
     flex: 2,
+    backgroundColor: "black",
     justifyContent: "center",
     alignItems: "center",
   },
 
   tabCenter: {
-    //width: 272, , replace with flex
-    padding: 12,
-    //position: "absolute",
-    //right: 0,
     flex: 5,
-    justifyContent: "center",
-  },
-  tabCenterText: {
-    fontSize: "2vh",
+    padding: 12,
   },
 
   tabText: {
     color: "white",
-    //fontSize: 14,
     fontSize: "2vh",
     whiteSpace: "nowrap",
   },
+
+  tabCenterText: {
+    fontSize: "2vh",
+  },
 });
 
-export const ConcertListItem = ({ navigation, item }) => {
+export const ConcertListItem = ({ item, handleInteraction }) => {
+  const flexWidthAnimation = useRef(new Animated.Value(2)).current;
+
+  function handleComponentPress() {
+    Animated.timing(flexWidthAnimation, {
+      toValue: 0,
+      duration: 750,
+    }).start(() => {
+      handleInteraction(item, flexWidthAnimation);
+    });
+  }
+
   return (
-    <TouchableHighlight
-      onPress={() => navigation.navigate("Details", { item })}
-    >
-      <View style={styles.item}>
-        <View style={styles.tab}>
-          <Text style={styles.tabText}>
+    <TouchableHighlight onPress={handleComponentPress}>
+      <Animated.View style={[styles.item, { opacity: 1 }]}>
+        <Animated.View style={[styles.tab, { flex: flexWidthAnimation }]}>
+          <Text style={[styles.tabText]}>
             {item.date.toLocaleDateString("en-us", {
               day: "2-digit",
               month: "short",
             })}
           </Text>
-        </View>
+        </Animated.View>
 
         <View style={styles.tabCenter}>
-          <Text style={styles.tabCenterText}>{item.name}</Text>
+          <Text style={[styles.tabCenterText]}>{item.name}</Text>
         </View>
-      </View>
+      </Animated.View>
     </TouchableHighlight>
   );
 };
